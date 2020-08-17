@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:noLike/src/components/camera_zero.component.dart';
+import 'package:noLike/src/components/camera_ultra.component.dart';
+
 import '../environment/environment.dart';
-// import '../components/tabs.components.dart';
-// import 'package:noLike/src/services/prueba.service.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
-import './gallery.page.dart';
+
+import '../components/gallery.component.dart';
+import 'package:camera/camera.dart';
 
 class HomePage extends StatefulWidget {
+  final List<CameraDescription> cameras;
+  HomePage({@required this.cameras});
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -71,6 +76,31 @@ class _HomePageState extends State<HomePage> {
         // automaticallyImplyLeading: false,
       ),
       body: GridListDemo(),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: () {
+          // Navigator.pushNamed(context, 'home-add-modal');
+          print("camara");
+          // return CameraScreen(widget.cameras);
+          // Navigator.of(context).pushNamed('/login');
+          Navigator.push(
+            context,
+            //  MaterialPageRoute(builder: (context) => CameraPage()),
+            // MaterialPageRoute(builder: (context) => TakePictureScreen()),
+            MaterialPageRoute(
+                builder: (context) =>
+                    TakePictureScreen(cameras: widget.cameras)),
+          );
+          // Navigator.pop(context);
+          // CameraComponent();
+          // TakePictureScreen();
+        },
+        child: Icon(
+          Icons.add,
+          color: Colors.purple,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
     // return GridListDemo();
   }

@@ -19,8 +19,9 @@ class TabMenu extends StatelessWidget {
           bottomNavigationBar: menu(),
           body: TabBarView(
             children: [
-              Container(child: HomePage()),
+              HomePage(),
               Container(child: Icon(Icons.directions_transit)),
+              // Container(child: TakePictureScreen()),
               Container(child: Icon(Icons.directions_bike)),
               Container(child: Icon(Icons.directions_bike)),
             ],
@@ -48,6 +49,18 @@ class TabMenu extends StatelessWidget {
             text: "Buscar",
             icon: Icon(Icons.search),
           ),
+          // Tab(
+          //   // text: "add",
+          //   icon: Icon(Icons.add),
+          //   // child: FloatingActionButton(
+          //   //   backgroundColor: Colors.white,
+          //   //   onPressed: null,
+          //   //   child: Icon(
+          //   //     Icons.add,
+          //   //     color: Colors.purple,
+          //   //   ),
+          //   // ),
+          // ),
           Tab(
             text: "Perfil",
             icon: Icon(Icons.person),
